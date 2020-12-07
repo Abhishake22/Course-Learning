@@ -1,0 +1,13 @@
+#Case statement to return 'M' as Male or else female
+
+SELECT
+emp_no,
+first_name,
+last_name,
+CASE Gender
+WHEN 'M' THEN 'MALE'
+ELSE 'FEMALE'
+END AS GENDER
+FROM EMPLOYEES;
+
+
