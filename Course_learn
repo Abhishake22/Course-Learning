@@ -163,6 +163,82 @@ from workers
 where WORKER_ID IN ( select WORKER_ID from workers where salary between 50000 and 100000);
 
 
+23. Write an SQL query to fetch the no. of workers for each department in the descending order.
+
+
+select DEPARTMENT,count(worker_id) as No_of_workers
+from workers
+group by DEPARTMENT order by worker_id desc;
+
+
+24.Write an SQL query to print details of the Workers who are also Managers
+
+
+select distinct(workers.First_name),title.WORKER_TITLE
+from workers
+join title
+ON Workers.WORKER_ID = title.WORKER_REF_ID
+AND Title.WORKER_TITLE in ('Manager');
+
+
+25.Write an SQL query to fetch duplicate records having matching data in some fields of a table
+
+
+select worker_title,AFFECTED_FROM
+from title
+group by WORKER_TITLE,AFFECTED_FROM
+having count(*)>1
+
+
+26.Write an SQL query to show only odd rows from a table
+
+select * from workers
+where mod(Worker_id,2)<>0; 
+
+
+27.Write an SQL query to show only even rows from a table
+
+select * from workers
+where mod(Worker_id,2)=0; 
+
+28.Write an SQL query to clone a new table from another table
+
+An alternate way to clone a table (for MySQL) without is:
+
+CREATE TABLE WorkerClone LIKE Worker;
+
+29.Write an SQL query to fetch intersecting records of two tables
+
+(SELECT * FROM Worker)
+INTERSECT
+(SELECT * FROM WorkerClone);
+
+
+30.Write an SQL query to show records from one table that another table does not have
+
+SELECT * FROM Worker
+MINUS
+SELECT * FROM Title;
+
+
+
+31.Write an SQL query to show the current date and time.
+
+
+Following MySQL query returns the current date:
+SELECT CURDATE();
+
+Following MySQL query returns the current date and time:
+SELECT NOW();
+
+Following SQL Server query returns the current date and time:
+SELECT getdate();
+
+
+Following Oracle query returns the current date and time:
+SELECT SYSDATE FROM DUAL;
+
+
 
 
 
