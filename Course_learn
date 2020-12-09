@@ -240,6 +240,13 @@ SELECT SYSDATE FROM DUAL;
 
 
 
+32.Write an SQL query to show the top n (say 10) records of a table
 
+select * from workers
+order by salary desc
+limit 10;
+
+
+33.
 
 
