@@ -263,5 +263,29 @@ where SALARY = (select max(SALARY) from workers)
 
 
 
+35. Write an SQL query to show all departments along with the number of people in there.
+
+select department,count(DEPARTMENT)
+from workers
+group by DEPARTMENT;
 
 
+36.Write an SQL query to show the second highest salary from a table
+
+
+select max(salary) as salary
+from workers
+where salary <(select Max(SALARY) from workers);
+
+
+
+37.Write an SQL query to show the last record from a table
+
+select * from workers
+where WORKER_ID = (select max(WORKER_ID) from workers);
+
+
+38.Write an SQL query to fetch the first row of a table
+
+select * from workers
+where WORKER_ID = (select min(WORKER_ID) from workers);
