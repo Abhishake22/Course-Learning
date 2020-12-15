@@ -247,6 +247,21 @@ order by salary desc
 limit 10;
 
 
-33.
+33.Write an SQL query to fetch departments along with the total salaries paid for each of them.
+
+select department,sum(salary)
+from workers
+group by DEPARTMENT,salary
+
+
+34.Write an SQL query to fetch the names of workers who earn the highest salary
+
+
+select first_name,salary
+from workers
+where SALARY = (select max(SALARY) from workers)
+
+
+
 
 
